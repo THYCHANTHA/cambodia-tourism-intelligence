@@ -1,0 +1,46 @@
+# Source registry. Files are supplied manually into data/raw_local/<source_id>/.
+# `columns` maps the file's own column names to canonical names. The mappings
+# below are PLACEHOLDERS: no real source file could be inspected (network
+# blocked), so they must be checked against the real files before use.
+sources:
+  monthly_arrivals:
+    owner: Ministry of Economy and Finance (MEF Data EF)
+    url: https://data.mef.gov.kh/datasets/pd_67f64166dbc953000126f580
+    kind: monthly_arrivals
+    columns: {period: period, arrivals: arrivals}
+  entry_points_2024:
+    owner: MEF Data EF
+    url: https://data.mef.gov.kh/datasets/pd_6a855873911be0000713a2c3
+    kind: entry_points
+    columns: {period: period, entry_point: entry_point, arrivals: arrivals}
+  entry_points_2025:
+    owner: MEF Data EF
+    url: https://data.mef.gov.kh/datasets/pd_6a8555f7911be0000713a2c1
+    kind: entry_points
+    columns: {period: period, entry_point: entry_point, arrivals: arrivals}
+  origins_2024:
+    owner: MEF Data EF
+    url: https://data.mef.gov.kh/datasets/pd_6a94e5649db1ac00079f7f84
+    kind: origin_purpose
+    columns: {year: year, residence: residence, purpose: purpose, visitors: visitors}
+  origins_2025:
+    owner: MEF Data EF
+    url: https://data.mef.gov.kh/datasets/pd_685d0de81b4d5f0001c68176
+    kind: origin_purpose
+    columns: {year: year, residence: residence, purpose: purpose, visitors: visitors}
+
+# Entry point -> type. Anything unlisted is flagged, never guessed.
+entry_point_types:
+  "Phnom Penh International Airport": air
+  "Siem Reap Angkor International Airport": air
+  "Sihanouk International Airport": air
+  "Land": land
+  "Waterway": water
+total_labels: ["Total", "Grand Total", "All"]
+
+# Residence labels that are regional aggregates, not countries. Extend after
+# inspecting real files; unknown labels are reported as 'unclassified'.
+region_labels: ["ASEAN", "Asia", "Asia Pacific", "Europe", "Americas", "Oceania", "Africa",
+                "Middle East", "East Asia", "South Asia", "Others"]
+
+covid_window: {start: "2020-03-01", end: "2022-12-01"}
