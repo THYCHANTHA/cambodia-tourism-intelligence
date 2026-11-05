@@ -1,0 +1,12 @@
+# Source data stays local until redistribution rights are confirmed
+data/raw_local/*
+!data/raw_local/README.md
+data/standardized/
+data/warehouse.duckdb
+data/warehouse.duckdb.wal
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
