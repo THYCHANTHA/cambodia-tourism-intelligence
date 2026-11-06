@@ -33,6 +33,20 @@ policy, not an upstream HTTP 403. The allow-list change most likely applies only
 session or after the environment is restarted. No redirect hosts could be observed.
 No bypass, mirror or retry loop was used.
 
+## Local reachability check, 2026-11-06
+
+From a local Windows machine (not the cloud session), one TLS-verified request per site root:
+
+| Host | HTTP status |
+|---|---|
+| https://data.mef.gov.kh | 200 |
+| https://tourism.gov.kh | 200 |
+| https://www.tourism.gov.kh | 200 |
+| https://www.nis.gov.kh | no response within 20 s |
+
+This only shows the sites are reachable. No dataset page, file or terms-of-use page was opened,
+so every "not inspected" entry below still stands.
+
 ## Per-source table
 
 For every field below the honest answer is "not inspected".
